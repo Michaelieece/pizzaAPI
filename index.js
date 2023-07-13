@@ -40,7 +40,7 @@ document.addEventListener('alpine:init', () => {
         },
   
         pizzaImage(pizza) {
-          return `./images/PizzaUk3.jpg`
+          return `./images/PizzaUk1.jpg`
         },
   
         message: 'ENTER YOUR NAME HERE BEFORE PLACING AN ORDER PLEASE!',
