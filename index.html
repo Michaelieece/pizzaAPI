@@ -113,13 +113,13 @@
                                 <!-- LIST OF ITEMS PURCHASED STARTS HERE -->
                                 <table>
                                    
-                                    <template x-for="pizza in cart.pizzas">
+                                    <template x-for="pizza in pizzas">
                                        
                                         <tr style="text-align: center; background-color: rgb(255, 0, 0)">
                                             
                                             <td x-text="pizza.flavour"></td>
                                            
-                                            <td><img x-bind:src=" pizzaImage(pizza)" alt="pizza" width="40px"></td>
+                                            <td><img x-bind:src="pizzaImage(pizza)" alt="pizza" width="40px"></td>
                                             
                                             <td x-text="pizza.size"></td>
                                             
