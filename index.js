@@ -26,7 +26,7 @@ document.addEventListener('alpine:init', () => {
   
         createCart() {
           return axios
-            .get('https://pizza-api.projectcodex.net/api/pizza-cart/create?username='+ this.username)
+            .get(`https://pizza-api.projectcodex.net/api/pizza-cart/create?username=${this.username}`)
         },
   
         showCart() {
@@ -40,11 +40,11 @@ document.addEventListener('alpine:init', () => {
         },
   
         pizzaImage(pizza) {
-          return `./images/PizzaUk1.jpg`
+          return `./images/${pizza.size}.jpg`
         },
   
         message: 'ENTER YOUR NAME HERE BEFORE PLACING AN ORDER PLEASE!',
-        username:'Michaelieece',
+        username:'',
         pizzas: [],
         featuredpizzas: [],
         cartId: '',
@@ -52,6 +52,8 @@ document.addEventListener('alpine:init', () => {
         paymentMessage: '',
         payNow: false,
         paymentAmount: 0,
+        viewCart: false,
+        change: 0,
   
         add(pizza) {
           const params = {
@@ -99,11 +101,15 @@ document.addEventListener('alpine:init', () => {
           axios
             .post('https://pizza-api.projectcodex.net/api/pizza-cart/pay', params)
             .then(() => {
-              if (!this.paymentAmount) {
+              if(this.username === ''){
+                alert('Please enter username to place an order');
+              }
+              else if (!this.paymentAmount) {
                 this.paymentMessage = 'Please enter an amount based on your purchase'
               }
               else if (this.paymentAmount >= this.cart.total) {
                 this.paymentMessage = 'Payment Sucessfully! Enjoy your day'
+                this.change = this.paymentAmount - this.cart.total;
                 this.message= this.username  +" , made a successful purchase for his/her order!"
                 setTimeout(() => {
                   this.cart.total = 0
@@ -112,6 +118,9 @@ document.addEventListener('alpine:init', () => {
   
               } else if (this.paymentAmount < this.cart.total) {
                 this.paymentMessage = 'Please add a new card that has sufficient funds else you will die of hunger! .'
+                setTimeout(() => {
+                  this.paymentMessage = '';
+                }, 5000);
               }
   
             })

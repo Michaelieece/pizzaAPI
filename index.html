@@ -15,24 +15,31 @@
     <script src="index.js" defer></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 
 
 <body>
+    <h1 class = "api">Michael Austin's Pizza Cart</h1>
+    
     <main class="container" style="background-color: #e83affc5">
         <section>
             <div class="card">
                 <div class="row" x-data="pizzaCartWithAPIWidget">
 
+                    <div>Username: <input type="text" x-model="username" placeholder="Enter Username">
+                    </div>
+
                     <section>
                         <div class="row">
 
-                            
+                            <div><button @click="viewCart=true">ViewCart</button></div>
                             <div class="l7 m12 s12" style="text-align: right;" style="text-align: center;">
                                 <div>
 
-                                    <div x-show="cart.total.toFixed(2)>0">
+                                    <div x-show="cart.total.toFixed(2)>0 && viewCart">
+                                        <button @click="viewCart=false">CloseCart</button>
                                         <table class="right" style="width: 50%; margin-left: auto; margin-right: auto;">
                                             <tr>
                                                 <th>Flavour</th>
@@ -70,7 +77,8 @@
                                                                 <label for="">Enter Amount</label>
                                                                 <input class="input" type="number"
                                                                     placeholder="Pay Amount" x-model="paymentAmount">
-                                                            </div>
+                                                            </div><br>
+                                                            Your Change is: R<div class="message" x-show="change>0" x-text="change.toFixed(2)"></div><br>
                                                             <div>
                                                                 <button x-on:click="pay"
                                                                     class="waves-effect waves-light btn">
@@ -124,7 +132,7 @@
                     </section>
                     <br>
 
-                    <h4 style="text-align: center;"> Michael Austin Chuba Okika Pizza Cart</h4>
+                    <h4 style="text-align: center;"> Michael's Pizza Cart</h4>
                     <div>
                         <table>
                             <tr>
