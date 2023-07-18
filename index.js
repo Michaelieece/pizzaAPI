@@ -117,7 +117,7 @@ document.addEventListener('alpine:init', () => {
                 }, 5000);
   
               } else if (this.paymentAmount < this.cart.total) {
-                this.paymentMessage = 'Please add a new card that has sufficient funds else you will die of hunger! .'
+                this.paymentMessage = 'Sorry but it seems your account is depleted. Please add a new card that has sufficient funds else you will die of hunger! Thank you .'
                 setTimeout(() => {
                   this.paymentMessage = '';
                 }, 5000);
