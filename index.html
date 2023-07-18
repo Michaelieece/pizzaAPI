@@ -105,33 +105,6 @@
                     </section>
                     <!-- ThIS SECTION OF IS FOR THE LIST OF ITEMS PUCHASED -->
 
-                    <section>
-
-                        <div class="row">
-                            <div class="col l12 s12 m12">
-
-                                <!-- LIST OF ITEMS PURCHASED STARTS HERE -->
-                                <table>
-                                   
-                                    <template x-for="pizza in cart.pizzas">
-                                       
-                                        <tr style="text-align: center; background-color: rgb(255, 0, 0)">
-                                            
-                                            <td x-text="pizza.flavour"></td>
-                                           
-                                            <td><img x-bind:src="pizzaImage(pizza)" alt="pizza" width="40px"></td>
-                                            
-                                            <td x-text="pizza.size"></td>
-                                            
-                                            <td x-text="pizza.price"></td>
-                                        </tr>
-                                    </template>
-                                </table>
-                            </div>
-                            <!-- LIST OF ITEMS PURCHASED ENDS HERE -->
-                    </section>
-                    <br>
-
                     <h4 style="text-align: center;"> Michael's Pizza Cart</h4>
                     <div>
                         <table>
